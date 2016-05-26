@@ -1,0 +1,36 @@
+/*You are given two strings,  and . Find if there is a substring that appears in both  and .
+
+Input Format
+
+Several test cases will be given to you in a single file. The first line of the input will contain a single integer , the number of test cases.
+
+Then there will be  descriptions of the test cases. Each description contains two lines. The first line contains the string  and the second line contains the string .
+
+Output Format
+
+For each test case, display YES (in a newline), if there is a common substring. Otherwise, display NO.*/
+
+import java.util.Scanner;
+
+public class Solution {
+	public static void main(String[] args) throws Exception {
+		Scanner in = new Scanner(System.in);
+		int N = in.nextInt();
+		testCase:
+		for(int i = 0; i < N; i++) {
+			String left = in.next();
+			String right = in.next();
+			boolean[] leftC = new boolean[26];
+			for(int j = 0; j < left.length(); j++) {
+				leftC[left.charAt(j) - 'a'] = true;
+			}
+			for(int k = 0; k < right.length(); k++) {
+				if(leftC[right.charAt(k) - 'a']) {
+					System.out.println("YES");
+					continue testCase;
+				}
+			}
+			System.out.println("NO");
+		}
+	}
+}
