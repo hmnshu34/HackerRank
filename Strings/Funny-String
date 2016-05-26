@@ -1,0 +1,46 @@
+/*Suppose you have a String, , of length  that is indexed from  to . You also have some String, , that is the reverse of String .  is funny if the condition  is true for every character from  to .
+
+Note: For some String ,  denotes the ASCII value of the  -indexed character in . The absolute value of an integer, , is written as .
+
+Input Format
+
+The first line contains an integer,  (the number of test cases). 
+Each line  of the  subsequent lines contain a string, .
+
+Constraints
+
+Output Format
+
+For each String  (where ), print whether it is  or  on a new line*/
+
+
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Scanner in= new Scanner(System.in);
+        int t = in.nextInt();
+        for(int i=0;i<t;i++){
+            String s =in.next();
+            StringBuffer buffer = new StringBuffer(s);
+            buffer.reverse();
+            char[] ch =s.toCharArray();
+            char[] rev=buffer.toString().toCharArray();
+            int counter = 0;
+            for(int j=1;j<ch.length;j++){
+                if(Math.abs((ch[j]-ch[j-1]))==Math.abs((rev[j]-rev[j-1]))){
+                    counter++;
+                }
+            }
+            if(counter==ch.length-1){
+                System.out.println("Funny");
+            }
+            else{
+                System.out.println("Not Funny");
+            }
+        }
+    }
+}
