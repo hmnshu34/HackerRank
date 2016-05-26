@@ -1,0 +1,38 @@
+/*Often, when a list is sorted, the elements being sorted are just keys to other values. For example, if you are sorting files by their size, the sizes need to stay connected to their respective files. You cannot just take the size numbers and output them in order, you need to output all the required file information.
+
+However, if you are not concerned about any other information, then you can simply sort those numbers alone. This makes counting sort very simple. If you already counted the values in the list, you don't need to access the original list again. This challenge involves a simple counting sort where the elements being sorted are all that matter.
+
+Challenge 
+Given an unsorted list of integers, output the integers in order.
+
+Hint: You can use your previous code that counted the items to print out the actual values in order.
+
+Input Format 
+There will be two lines of input:
+
+ - the size of the list
+ -  space separated numbers that belong to the list
+Output Format 
+Output all the numbers of the list in order.*/
+
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Scanner in = new Scanner(System.in);
+        int size = in.nextInt();
+        int[] array = new int[100];
+        for(int i=0;i<size;i++){
+            int num =in.nextInt();
+            array[num] = array[num]+1;                   
+        }
+        for(int x=0;x<100;x++){
+            for(int y=0;y<array[x];y++){
+                System.out.print(x + " ");
+            }
+        }
+    }
+}
