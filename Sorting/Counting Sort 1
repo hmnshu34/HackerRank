@@ -1,0 +1,34 @@
+/*Given a list of integers, can you count and output the number of times each value appears?
+
+Hint: There is no need to sort the data, you just need to count it.
+
+Input Format 
+There will be two lines of input:
+
+ - the size of the list
+ -  space-separated numbers that make up the list
+Output Format 
+Output the number of times every number from  to  (inclusive) appears on the list.
+
+Constraints */
+
+
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Scanner in = new Scanner(System.in);
+        int size = in.nextInt();
+        int[] array = new int[100];
+        for(int i=0;i<size;i++){
+            int num =in.nextInt();
+            array[num] = array[num]+1;                   
+        }
+        for(int j=0;j<size;j++){
+            System.out.print(array[j] + " ");
+        }
+    }
+}
