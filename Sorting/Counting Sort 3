@@ -1,0 +1,45 @@
+/*Challenge 
+You will be given a list that contains both integers and strings. In this challenge you just care about the integers. For every value  from , can you output , the number of elements that are less than or equal to ?
+
+Input Format 
+- , the size of the list . 
+-  lines follow, each containing an integer  and a string .
+
+Output Format 
+Output  for all numbers from  to  (inclusive).
+
+Constraints 
+ 
+ 
+length of string 
+
+Sample Input */
+
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Scanner in = new Scanner(System.in);
+        int size = in.nextInt();
+        int[] array = new int[100];
+        for(int i=0;i<=size;i++){
+            String[] num =in.nextLine().split(" ");
+            if(!num[0].equals("")){
+               int number = Integer.parseInt(num[0]);
+                array[number]++;
+            }         
+        }
+         int sum=0;
+        for(int j=0;j<100;j++){
+                    sum=0;
+            for(int i=0;i<=j;i++){
+                sum=sum+array[i];
+
+            }
+          System.out.print(sum +" ");
+        }
+    }
+}
