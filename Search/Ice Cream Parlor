@@ -1,0 +1,42 @@
+/*Sunny and Johnny together have  dollars they want to spend on ice cream. The parlor offers  flavors, and they want to choose two flavors so that they end up spending the whole amount.
+
+You are given the cost of these flavors. The cost of the  flavor is denoted by . You have to display the indices of the two flavors whose sum is .
+
+Input Format
+
+The first line of the input contains ;  test cases follow. 
+Each test case follows the format detailed below: The first line contains . The second line contains . The third line contains  space-separated integers denoting the price of each flavor. Here, the  integer denotes .
+
+Output Format
+
+Output two integers, each of which is a valid index of a flavor. The lower index must be printed first. Indices are indexed from  to .*/
+
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Scanner in = new Scanner(System.in);
+        int t = in.nextInt();
+        for(int i=0;i<t;i++){
+            int m = in.nextInt();
+            int n = in.nextInt(); 
+            int[] a =new int[n];
+            for(int j=0;j<n;j++){ 
+               a[j]=in.nextInt();               
+            }
+            int k=0,l=0;
+            for( k=0;k<n-1;k++){
+                for(l=k+1;l<n;l++){
+                    if(a[k]+a[l]==m){
+                        if(k!=l){
+                        System.out.println((k+1) +" " + (l+1));
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
