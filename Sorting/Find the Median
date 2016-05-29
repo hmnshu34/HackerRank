@@ -1,0 +1,31 @@
+/* Challenge 
+Given a list of numbers, can you find the median?
+
+Input Format 
+There will be two lines of input:
+
+ - the size of the array
+ -  numbers that makes up the array
+Output Format 
+Output one integer, the median.*/
+
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Scanner in = new Scanner(System.in);
+        int n = in.nextInt();
+        ArrayList<Integer> arr = new ArrayList<Integer>();
+        for(int i=0;i<n;i++){
+            arr.add(in.nextInt());
+        }
+        Collections.sort(arr);
+        System.out.println(arr.get((int)(Math.floor(n/2))));
+    }
+}
