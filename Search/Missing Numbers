@@ -1,0 +1,75 @@
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+/**
+ * @author Arun.G
+ *
+ */
+public class Solution{
+
+       /**
+        * @param args
+        */
+       static BufferedReader in = new BufferedReader(new InputStreamReader(
+                     System.in));
+
+       public static void main(String[] args) throws NumberFormatException,
+                     Exception {
+              /*
+               * Enter your code here. Read input from STDIN. Print output to STDOUT.
+               * Your class should be named Solution.
+               */
+
+              int n = Integer.parseInt(in.readLine());
+              List<Integer> A = new ArrayList<Integer>();
+              List<Integer> B = new ArrayList<Integer>();
+              ArrayList<Integer> missingNumbersList = new ArrayList<Integer>();
+              //get all the numbers in A list
+              String[] ANumbers = in.readLine().split(" ");
+              for (int i = 0; i < ANumbers.length; i++) {
+                     A.add(Integer.parseInt(ANumbers[i]));
+              }
+              //sort the A List
+              Collections.sort(A);
+              //get all the numbers in B list
+              int m = Integer.parseInt(in.readLine());
+              String[] BNumbers = in.readLine().split(" ");
+              for (int i = 0; i < BNumbers.length; i++) {
+                     B.add(Integer.parseInt(BNumbers[i]));
+
+              }
+              //sort the A List
+              Collections.sort(B);
+             
+              int i = 0, j = 0;
+              while (i < B.size()) {
+                     if (j < A.size()) {
+                           int numB = B.get(i);
+                           int numA = A.get(j);
+                           if (numA == numB) {
+                                  i++;
+                                  j++;
+                           } else {
+                                  if (!missingNumbersList.contains(numB))
+                                         missingNumbersList.add(numB);
+                                  i++;
+                           }
+                     } else {
+                           if (!missingNumbersList.contains(B.get(i)))
+                                  missingNumbersList.add(B.get(i));
+                           i++;
+                     }
+
+              }
+
+              Collections.sort(missingNumbersList);
+
+              for (Integer num : missingNumbersList) {
+                     System.out.print(num + " ");
+              }
+
+       }
+}
